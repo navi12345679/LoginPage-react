@@ -1,0 +1,22 @@
+.display-container{
+    width: 100%;
+    height: 50vh;
+    background: #fce3fe;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    align-items: center;
+    align-content: center;
+}
+.display-container h1{
+    font-size: 30px;
+    font-weight: 600;
+    color: hsl(88, 84%, 18%);
+    font-family: Verdana, Tahoma, sans-serif;
+    text-shadow: 3px 3px 10px hsl(88, 84%, 48%);
+}
+.display-container p{
+    font-size: 28px;
+    font-weight: 600;
+    color: hsl(209, 85%, 18%);
+    font-family: Verdana, Tahoma, sans-serif;
+}
