@@ -32,7 +32,6 @@ function Signin () {
               name="username"
               placeholder='John'
               value={name}
-              readOnly
               required
             />
             <input
@@ -40,8 +39,7 @@ function Signin () {
               name="email"
               placeholder='XYZ@gmail.com'
               value={email}
-              readOnly
-              required
+               required
             />
             <input
               type='password'
