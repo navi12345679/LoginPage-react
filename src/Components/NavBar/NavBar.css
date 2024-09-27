@@ -1,0 +1,8 @@
+.navbar{
+    gap: 20px;
+    padding: 10px;
+    display: flex;
+    font-size: 25px;
+    background-color: hsla(298, 85%, 63%, 0.575);
+    justify-content: space-around;
+}

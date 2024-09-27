@@ -1,62 +1,67 @@
-import React, { useState,useContext } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './Signin.css'
-import { UserContext } from '../../Context/Context';
 
-function Signin () {
-  const { updateUser } = useContext(UserContext);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+function Signin (props) {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    updateUser({ name, email });
-    setName(e.target.value);
-    setEmail(e.target.value);
-    
-};
- 
-//  function NotAuser(){
-//       alert(`Not a Valid`);
- //}
- 
-  return (
-    <div>
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-        <div className='loginsignup-container'>
-      <div className='login-container'>
-         <h1>LOGIN</h1>
-         <form onSubmit={handleSubmit} className='loginsignup-fields'>
-         <input
-              type='text'
-              name="username"
-              placeholder='John'
-              value={name}
-              required
-            />
-            <input
-              type='email'
-              name="email"
-              placeholder='XYZ@gmail.com'
-              value={email}
-               required
-            />
-            <input
-              type='password'
-              name="password"
-              placeholder='*******'
-              required
-            />
-         <Link to='/login'><button type='submit'>Login</button></Link>
+    function handleLogin (e) {
+        e.preventDefault();
+        const hardcodedUsername = {props};
+        const hardcodedPassword = {props};
 
+        
+    const username = e.target.value;
+    const password = e.target.value;
 
-         </form>
-         </div>
-          </div>
-          </div>
- 
-    
-  )
+    if (username === '' || password === '') {
+        setError('Must Enter username and password');
+    } else if (username === hardcodedUsername && password === hardcodedPassword) {
+        setError('');
+        alert('Login successful!'); 
+    } else {
+        setError('Invalid username or password');
+    }
 }
+
+    return (
+        <div className='loginsignup-container'>
+            <h1>Login</h1>
+            <form   className='login-container'>
+                <div className='loginsignup-fields'>
+                    <label>
+                        Username:
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(props.username)}
+                            required
+                        />
+                    </label>
+                </div>
+                <div className='loginsignup-fields'>
+                    <label>
+                        Password:
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(props.password)}
+                            required
+                        />
+                    </label>
+
+                </div>
+                {error &&<div style={{ color: 'red' }}>{error}</div>}
+                <Link to='/home'><button  onSubmit={() =>handleLogin()} className='submit-button' type='submit'>Login</button></Link>
+
+            </form>
+        </div>
+    
+  );
+};
+
 
 export default Signin
